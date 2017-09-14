@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-H-TW">
+
+<head>
+	<meta charset="UTF-8">
+	<title>TODO</title>
+
+</head>
+
+<body>
+	<h1> TODO LIST</h1>
+	<input type="text" id="keyList" />
+	<button id="sendList">送出</button>
+	<hr/>
+	<ul  id="listItem">
+	</ul>
+
+
+
+	
+
+
+	<script>
+		// 1綁定元件然後把input的值加顯示到ul
+		// var keyList = document.querySelector("#keyList")
+		// var sendBtn = document.querySelector("#sendList")
+		// var listDiv = document.querySelector("#listItem")
+		// sendBtn.onclick = function(){
+		// 	let listContent = sendBtn.value
+			
+		// 	listDiv.innerHTML ="123"
+		
+		// }
+
+		//2以append這個method產生li
+		// var keyList = document.querySelector("#keyList")
+		// var sendBtn = document.querySelector("#sendList")
+		// var listDiv = document.querySelector("#listItem")
+		// sendBtn.onclick = function(){
+		// 	let listContent = keyList.value
+			
+		// 	listDiv.innerHTML ="<li>" + listContent + "</li>" 
+		// 	// let linode = document.createElement("li")
+		// 	// linode.innerHTML =  listContent
+		// 	// listDiv.append(linode)
+			
+		// }
+
+
+		//3加入刪除
+		// var keyList = document.querySelector("#keyList")
+		// var sendBtn = document.querySelector("#sendList")
+		// var listDiv = document.querySelector("#listItem")
+		// sendBtn.onclick = function(){
+		// 	let listContent = keyList.value
+			
+		// 	let linode = document.createElement("li")
+		// 	linode.innerHTML =  listContent +"<button class='delList'>刪除</button>"
+		// 	listDiv.append(linode)
+			
+		// }
+
+
+		//4加上刪除事件
+		
+
+		var keyList = document.querySelector("#keyList")
+		var sendBtn = document.querySelector("#sendList")
+		var listDiv = document.querySelector("#listItem")
+		sendBtn.onclick = function(){
+			let listContent = keyList.value
+			
+			let linode = document.createElement("li")
+			linode.innerHTML =  listContent +"<button class='delList'>刪除</button>"
+			listDiv.append(linode)
+			//算一下目前有多少個delList
+			//每次產生delList要對他去做綁定事件
+			let y = document.querySelectorAll(".delList").length-1
+			addDel(y)
+		}
+
+
+		function addDel(y){
+			 delList = document.querySelectorAll(".delList")
+			 delList[y].onclick =  function(){
+				document.querySelectorAll("#listItem > li")[y].remove()
+			 }
+		}
+
+
+	</script>
+
+</body>
+
+</html>
